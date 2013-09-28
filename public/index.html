@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>time planner</title>
+        <link rel="stylesheet" href="css/general.css" />
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    	
+        
+        
+        <link rel="stylesheet" type="text/css" href="css/table.css?relo1ad" /> 
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	    <script src="http://code.jquery.com/jquery.js"></script>
+	    <!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="js/bootstrap.min.js"></script>
+
+        <!--plugins-->
+        	<!--countdown -->
+    	<link rel="stylesheet" type="text/css" href="css/jquery.countdown.css"> 
+		<script type="text/javascript" src="js/jquery.countdown.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!--filling session-->
+        <!-- Add your site or application content here -->
+        <div class="container">
+        	<div class="navbar navbar-inverse" role="navigation">
+        		<div class="navbar-collapse collapse" style="height: 2px">
+                  <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                  </ul>
+              	</div>
+            </div>
+	        
+
+	        <!--test area -->
+	        <div class="container">
+			    <div class="row">
+			        <ul class="thumbnails">
+			            <li class="col-md-3">
+			                <div class="thumbnail" style="padding: 0">                 
+			                    <div class="caption">
+			                    	<p>Goal:<p>
+			                        <textarea class="goalTextarea" placeholder="Goal"></textarea>
+			                        <p>Detail steps description:</p>
+			                        <textarea class="detailTextarea" row="19" col="50" placeholder="Details" ></textarea>
+			                        <p>
+				                        <div class="row">
+				                        	<div class="container">
+				                        		<input class = "currentStartButton btn btn-primary btn-lg" type="button" name="start" value="start">
+				                        		<input class = "interrupt btn btn-primary btn-lg" type="button" name="interrupt" value="interrupt">
+				                        	</div>
+				                        </div>
+			                        </p>
+			                    </div>
+			                    <div class="modal-footer" style="text-align: left">
+			                        <div class="progress progress-striped active" style="background: #ddd">
+			                            <div class="progress-bar" style="width: 0%;"></div>
+			                        </div>
+
+			                        </div>
+			                        <div class="row">
+			                            <div class="col-md-3 "><b>Start</b><br/><small class="startTime"></small></div>
+			                            <div class="col-md-4 "><b>End</b><br/><small class="endTime"></small></div>
+			                            <div class="col-md-5"><b>Left</b><br/><div class="countDown">
+						        			
+			                        </div>
+			                        <div>
+			                        	&nbsp
+			                        </div>
+			                    </div>
+			                </div>
+			            </li>          
+			           
+			        </ul>
+
+			    </div>
+			</div>
+	    <!-- test area-->
+	        <div class="container">
+	        	<h1><a href="#">Time Planner</a></h1>
+		        <div class="inputWrapper">
+		        	<div class="jumbotron">
+		        		<h1>Plan</h1>
+		        		<div class="row">
+				        	<table class="inputTable table table-striped">
+				        		<tbody>
+						        	<tr>
+						        		<th>Goal</th>
+						        		<th>Info</th>
+						        		<th>Start Time</th>
+						        		<th>End Time</th>
+						        		<th>Time Left</th>
+						        	</tr> 					        
+						        	<tr>
+						        		<td><textarea row="4" col="50" placeholder="Goal"></textarea> </td>
+						        		<td><textarea row="4" col="50" placeholder="other Info" ></textarea></td>				        		
+						        		<td>Now</td>
+						        		<td>In 25 mins</td>
+						        		<td>
+						        			<div class="countDown_placeHolder">
+						        			</div>
+						        		</td>
+						        	</tr>
+						        	
+						        </tbody>		
+				        	</table>				        	 
+					    </div>
+					    <div class = "operation" style="max-width: 400px; margin: 0 auto 10px;">
+					    	<div class="row">
+						        		<input class = "currentStartButton btn btn-primary btn-block" type="button" name="start" value="start">
+					        			<input class = "btn btn-primary btn-block" type="button" name="interrupt" value="interrupt">
+					        			<input class ="musicStopButtion btn btn-primary btn-block" type="button" name="stopMusic" value="stop music"> 
+					   		 </div>  
+					   	</div>
+	    
+
+
+        	<div class="progress progress-striped active " style="background: #ddd">
+			  <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
+			  	<div class="bar" style="width: 60%"></div>
+			  </div>
+			</div>
+			        </div>	
+		        </div>
+		    </div>
+	        
+	        <!--history session-->    
+	        <div class="historyWrapper jumbotron">
+	        	<h2><a href="#">History</a></h2>
+	        	
+	        	<table class="historyTable ">
+	        		<tbody>
+			        	<tr>
+			        		<th>Date</th> 
+			        		<th>Goal</th> 
+			        		<th>Info</th> 
+			        		<th>Start</th> 
+			        		<th>End</th> 
+			        		<th>Finish(%)</th> 
+			        		<th>Reason</th> 
+			        		<th>Submit/Delete</th>
+			        	</tr>
+		       		</tbody>
+	        	</table>
+	        	<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+				<form hidden="true" method="post" action="https://script.google.com/macros/s/AKfycbyHhqjtfD0ndwCt2e0tD8JOeVcQB2SEQXT3LAR495bXS4yrXHI/exec" name="anotherButtonWillSubmitThisForm" id="googleForm" target="hidden_iframe">
+				  <input id="date" type="text" name="Date" value="1">
+				  <input id="goal" type="text" name="Goal" value="1">
+				  <input id="info" type="text" name="Info" value="1">
+				  <input id="start" type="text" name="Start" value="1">
+				  <input id="end" type="text" name="End" value="1">
+				  <input id="finishRate" type="text" name="Finish Rate(%)" value="1">	
+				  <input id="finishRateReason" type="text" name="Reason" value="1">		  
+				</form> 
+	        </div>
+
+	        <!-- audio session-->
+	        <div class="audioWrapper" >
+	        	<audio loop>
+				  <source src="audio/LoverOfTheLight.mp3" hide="true" type="audio/mpeg">
+				Your browser does not support the audio element.
+				</audio>
+	        </div>
+	    </div>
+        
+
+    </body>
+</html>

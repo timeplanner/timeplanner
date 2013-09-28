@@ -1,0 +1,62 @@
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 auto;
+  font-size: 18px;
+}
+tr:hover { background: #8C9FEE; }
+th, td {
+  vertical-align: top;
+}
+th {
+  background: #404853;
+  background: linear-gradient(#687587, #404853);
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 18px;
+  padding: 9px 8px 7px 8px;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.6);
+  text-transform: uppercase;
+}
+td {
+  padding: 8px;
+}
+
+tbody td {
+  border-bottom: 1px solid #c6c9cc;
+  border-left: 1px solid #e4e7eb;
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+}
+tbody tr:nth-child(odd) td {
+  background: #e8eae9;
+  background: linear-gradient(#f7faf9, #e8eae9);
+  border-left: 1px solid #d5d8db;
+  opacity: 0.75;
+}
+
+tfoot td {
+  border-bottom: 1px solid #c6c9cc;
+  border-left: 1px solid #e4e7eb;
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  text-align: right;
+}
+
+.in {
+  color: #00b515;
+}
+.out {
+  color: #b50000;
+}
+
+.goalTextarea {
+  width: 234px;
+  height:100px;
+}
+
+.detailTextarea{
+  width: 234px;
+  height:140px;
+}

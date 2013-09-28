@@ -1,0 +1,25 @@
+body {
+	background: url('../img/eyes.png') no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color:#cccccc;
+	padding-top: 40px;
+}
+h1 {
+    text-align: center;
+    opacity: 1;
+    
+}
+
+.historyWrapper{
+	text-align: center;
+}
+.container {
+   width: 1200px !important;
+ }
+
+ .hero-unit {
+  opacity: 1;
+}

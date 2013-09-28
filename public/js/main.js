@@ -29,14 +29,60 @@ var timeBreakMin = 5;
 
 
 $(document).ready(function(){
-	var countDownIntervalControl;	
-	/*
-	*submit to google doc
-	*
-	*google doc first row:
-	*Number	Goal	Info	Start	End	   Finish Rate(%)
-	*
-	*/
+	var countDownIntervalControl;
+    /*
+     *
+     *
+     *
+     *
+     *
+     */
+    $('body').on('click','.addStep',function(){
+        var stepRow="";
+        stepRow = '\<div class=\'step input-group\'>   \
+                            <span class=\'input-group-addon\'>   \
+                            <input type=\'checkbox\'>        \
+                            </span>                        \
+                            <input type=\'text\' class=\'stepContent form-control \'>  \
+                                <span class=\'input-group-btn\'>        \
+                                    <button class=\'addStep btn btn-default\' type=\'button\'><span class=\'glyphicon glyphicon-chevron-down\'></span></button>\
+                                </span>                               \
+                                <span class=\'input-group-btn\'>        \
+                                    <button class=\'deleteStep btn btn-default\' type=\'button\'><span class=\'glyphicon glyphicon-trash\'></span></button>    \
+                                </span>                                                                                                                  \
+                     </div><!-- /input-group -->';
+
+
+        $(this).parent().parent().after(stepRow);
+    });
+    /*
+     *
+     *
+     *
+     *
+     *
+     */
+    $('body').on('click','.deleteStep',function(){
+        $(this).parent().parent().remove();
+    });
+
+
+
+
+
+
+
+
+
+
+    /*
+     *submit to google doc
+     *
+     *google doc first row:
+     *Number	Goal	Info	Start	End	   Finish Rate(%)
+     *
+     */
+
 	$('body').on('click', ".submitRow", function() {
 		//rowIndex is native javascript and .index() is jquery object
 		//this is why there's no $() around "this" and parentElement is not a method.
@@ -152,11 +198,16 @@ $(document).ready(function(){
 		$('.startTime').html(getCertainTimeHourMinFromNow(0));
 		$('.endTime').html(getCertainTimeHourMinFromNow(timeIntervalMin*60));
 
-		//save to json
+		//save to Array
+        // rowArray used for table plan UI
 		var rowArray = getRowToArray(".inputTable",1);
+        // planArray used for thumbnail plan UI
+        var planArray = getPlanCardToArray('.planCard');
+        planArray.push($('.startTime').html());
+        planArray.push($('.endTime').html());
 
 		//save to history table
-		attachArrayToHistoryTable(rowArray);	
+		attachArrayToHistoryTable(planArray);
 
 		//$('#expireMessage').countdown('option', {until: shortly}); 		
 		//callback function, just put name. NO () after it! otherwise, the function will be called!
@@ -182,6 +233,23 @@ $(document).ready(function(){
 	});
 })// $(document).ready(function(){}
 
+
+/*
+ * loop over details steps to get the steps in a formated string
+ *
+ *
+ *
+ *
+ */
+function sumSteps(){
+    var sumSteps = "";
+    var stepNumber = 0;
+    $('.stepsGroup .stepContent').each(function(){
+        stepNumber ++;
+        sumSteps = sumSteps + stepNumber.toString() + "." +$(this).val() + "\n";
+    });
+    return  sumSteps;
+}
 
 /*
 *update bar progress
@@ -394,30 +462,57 @@ function getRealContentFromCell(jQueryTableSelector,row,column){
 
 
 /*
-*
-* get data from a row of a table into an array
-* row is the actul row, not including the th, it starts from 1.
-* if succeed, return the array, else return empty array
-* 
-*/
+ *
+ * get data from a row of a table into an array
+ * row is the actul row, not including the th, it starts from 1.
+ * if succeed, return the array, else return empty array
+ *
+ */
 function getRowToArray(jQueryTableSelector,row){
-	var column = 0;
-	var rowArray = [];
+    var column = 0;
+    var rowArray = [];
 
-	//check if table not exists, using the jQuery's object's length
-	var table = $(jQueryTableSelector)
-	console.log(table);
-	if ( table.length == 0 ){
-		console.log("Can't find table to get the row");
-	}
-	console.log(table.children("tbody").children("tr"));
-	if (table.children("tbody").children("tr").length == 0){
-		console.log("This table doesn't have a row");		
-	}
-	else{		
-		for (column = 0;column < table.children("tbody").children("tr").children("td").length; column ++){			
-			rowArray.push( getRealContentFromCell(jQueryTableSelector,row,column));
-		}	
-	}
-	return rowArray;    
+    //check if table not exists, using the jQuery's object's length
+    var table = $(jQueryTableSelector)
+    console.log(table);
+    if ( table.length == 0 ){
+        console.log("Can't find table to get the row");
+    }
+    console.log(table.children("tbody").children("tr"));
+    if (table.children("tbody").children("tr").length == 0){
+        console.log("This table doesn't have a row");
+    }
+    else{
+        for (column = 0;column < table.children("tbody").children("tr").children("td").length; column ++){
+            rowArray.push( getRealContentFromCell(jQueryTableSelector,row,column));
+        }
+    }
+    return rowArray;
+}
+
+/*
+ *
+ * get data from a plan card into an array
+ *
+ * if succeed, return the array, else return empty array
+ *
+ */
+function getPlanCardToArray(jQueryTableSelector){
+    var planArray = [];
+
+    //check if table not exists, using the jQuery's object's length
+    var planCard = $(jQueryTableSelector)
+    if ( planCard.length == 0 ){
+        console.log("Can't find planCard");
+    }
+    if (planCard.find('.goal').length == 0){
+        console.log("The goal doesn't exist");
+    }
+    else{
+        planArray.push(planCard.find('.goal').val());
+    }
+
+    planArray.push( sumSteps() );
+    console.log(planArray);
+    return planArray;
 }

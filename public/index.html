@@ -26,12 +26,12 @@
     </head>
     <body>
         <!--[if lt IE 7]>
-            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
         <!--filling session-->
         <!-- Add your site or application content here -->
-        <div class="container">
+
         	<div class="navbar navbar-inverse" role="navigation">
         		<div class="navbar-collapse collapse" style="height: 2px">
                   <ul class="nav navbar-nav">
@@ -45,49 +45,71 @@
 	        
 
 	        <!--test area -->
-	        <div class="container">
-			    <div class="row">
+
+			 <div class="row">
 			        <ul class="thumbnails">
-			            <li class="col-md-3">
-			                <div class="thumbnail" style="padding: 0">                 
+			            <li class="col-sm-6 col-md-3">
+			                <div class="planCard thumbnail" style="padding: 10px">
 			                    <div class="caption">
-			                    	<p>Goal:<p>
-			                        <textarea class="goalTextarea" placeholder="Goal"></textarea>
+                                    <div ><p>Goal:<p>
+                                    </div>
+                                    <div class="input-group">
+                                      <span class="input-group-btn">
+                                        <button class="btn btn-default" type="button">Go!</button>
+                                      </span>
+                                      <input type="text" class="goal form-control">
+                                    </div><!-- /input-group -->
 			                        <p>Detail steps description:</p>
-			                        <textarea class="detailTextarea" row="19" col="50" placeholder="Details" ></textarea>
-			                        <p>
-				                        <div class="row">
-				                        	<div class="container">
-				                        		<input class = "currentStartButton btn btn-primary btn-lg" type="button" name="start" value="start">
-				                        		<input class = "interrupt btn btn-primary btn-lg" type="button" name="interrupt" value="interrupt">
-				                        	</div>
-				                        </div>
-			                        </p>
+                                    <div class="stepsGroup">
+                                        <div class="step input-group">
+                                            <span class="input-group-addon">
+                                                <input type="checkbox">
+                                            </span>
+                                            <input type="text" class="stepContent form-control">
+                                            <span class="input-group-btn">
+                                                <button class="addStep btn btn-default" type="button"><span class="glyphicon glyphicon-chevron-down"></span></button>
+                                            </span>
+                                            <span class="input-group-btn">
+                                                <button class="deleteStep btn btn-default" type="button"><span class="glyphicon glyphicon-trash"></span></button>
+                                            </span>
+                                        </div><!-- /input-group -->
+                                    </div>
+
+                                        <p>&nbsp</p>
+
+
+				                        		<input class = "currentStartButton btn btn-primary btn-block" type="button" name="start" value="start">
+				                        		<input class = "interrupt  btn btn-primary btn-block" type="button" name="interrupt" value="interrupt">
+
+
+
 			                    </div>
 			                    <div class="modal-footer" style="text-align: left">
 			                        <div class="progress progress-striped active" style="background: #ddd">
 			                            <div class="progress-bar" style="width: 0%;"></div>
 			                        </div>
-
-			                        </div>
-			                        <div class="row">
-			                            <div class="col-md-3 "><b>Start</b><br/><small class="startTime"></small></div>
-			                            <div class="col-md-4 "><b>End</b><br/><small class="endTime"></small></div>
-			                            <div class="col-md-5"><b>Left</b><br/><div class="countDown">
-						        			
-			                        </div>
-			                        <div>
-			                        	&nbsp
-			                        </div>
 			                    </div>
+
+                                <div class="row">
+                                    <div class="col-sm-3 col-md-3  "><b>Start:  </b><br/><small class="startTime"></small>
+                                    </div>
+                                    <div class="col-sm-4 col-md-4 "><b>End:  </b><br/><small class="endTime"></small>
+                                    </div>
+                                    <div class="col-sm-5 col-md-5"><b>Left:  </b><br/>
+                                        <div class="countDown">
+                                        </div>
+                                    </div>
+                                    <div>
+                                    &nbsp
+                                    </div>
+                                </div>
 			                </div>
-			            </li>          
-			           
+			            </li>
 			        </ul>
 
 			    </div>
-			</div>
-	    <!-- test area-->
+		
+	        <!--  end test area-->
 	        <div class="container">
 	        	<h1><a href="#">Time Planner</a></h1>
 		        <div class="inputWrapper">
@@ -173,7 +195,7 @@
 				Your browser does not support the audio element.
 				</audio>
 	        </div>
-	    </div>
+
         
 
     </body>
